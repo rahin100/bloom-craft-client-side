@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
   const navLink = (
     <>
-      <li className="text-[18px] font-bold text-black">
+      <li className="text-[16px] font-bold text-black">
         <NavLink
           to="/"
           className="text-black"
@@ -12,46 +12,64 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/service"
+          className="text-[16px] font-bold text-black"
+          activeclassname="text-primary-600"
+        >
+          Service
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/login"
+          className="text-[16px] font-bold text-black"
+          activeclassname="text-primary-600"
+        >
+          Log In
+        </NavLink>
+      </li>
       <li tabIndex={0}>
         <details>
-          <summary className="text-[18px] font-bold text-black">Parent</summary>
+          <summary className="text-[16px] font-bold text-black">DashBoard</summary>
           <ul className="p-2">
             <li>
               <NavLink
-                to="/about"
+                to="/my-services"
                 className="text-black"
                 activeclassname="text-primary-600"
               >
-                Sub 1
+                My Services
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/about"
+                to="/add-services"
                 className="text-black"
                 activeclassname="text-primary-600"
               >
-                Sub 2
+                Add Services
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/my-schedules"
+                className="text-black"
+                activeclassname="text-primary-600"
+              >
+                 My Schedules
               </NavLink>
             </li>
           </ul>
         </details>
-      </li>
-      <li>
-        <NavLink
-          to="/about"
-          className="text-black"
-          activeclassname="text-primary-600"
-        >
-          About
-        </NavLink>
       </li>
     </>
   );
 
   return (
     <div>
-      <div className="navbar bg-base-100 shadow-2xl">
+      <div className="navbar bg-[#3cb68d] shadow-2xl">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -80,7 +98,7 @@ const Navbar = () => {
           <Link to={"/"}>
             <img
               className="w-[230px]"
-              src="https://svgur.com/i/zJG.svgg"
+              src="https://svgur.com/i/zJG.svg"
               alt=""
             />
           </Link>
