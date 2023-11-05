@@ -1,36 +1,135 @@
-
 const Banner = () => {
-
-  return (
-    <div>
-      <div className="carousel w-full">
-        <div id="slide1" className="carousel-item relative w-full">
-          <div className="w-full h-[100vh] absolute inset-0 bg-black opacity-50"></div>
-          <div className="absolute lg:left-[10%] md:left-[10%] left-[3%] top-[50%] transform translate-y-[-50%] z-10">
-            <h1 className="text-white text-2xl lg:text-6xl font-extrabold mb-3 lg:mb-10">
-            Transforming  
-            </h1>
-            <h1 className="text-white text-3xl lg:text-7xl font-extrabold mb-3 lg:mb-10">
-            Your Green Dreams
-            </h1>
-            <h1 className="text-white text-5xl lg:text-8xl font-extrabold">
-            into Reality!.
-            </h1>
+    return (
+      <div className="mb-[100px]">
+        <div className="carousel w-full h-[90vh]">
+          <div id="slide1" className="carousel-item relative w-full">
+            <img
+              src="https://i.ibb.co/r43ny7Q/plants-pot-with-watering-can.jpg"
+              className="w-full"
+            />
+            <div className="absolute lg:left-[190px] left-[70px]   top-[30%]">
+              <h1 className="text-white lg:text-6xl text-2xl mb-3  font-semibold">
+              Transforming 
+              </h1>
+              <h2 className="text-white lg:text-7xl text-2xl mb-3 font-semibold">
+               Your Green Dreams
+              </h2>
+              <h3 className="text-white lg:text-8xl text-2xl mb-5 font-semibold">
+              into Reality!.
+              </h3>
+            </div>
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+              <a
+                href="#slide4"
+                className="btn btn-circle bg-transparent text-white"
+              >
+                ❮
+              </a>
+              <a
+                href="#slide2"
+                className="btn btn-circle bg-transparent text-white"
+              >
+                ❯
+              </a>
+            </div>
           </div>
-          <video
-            className="w-full h-[100vh] object-cover"
-            autoPlay
-            muted
-            loop
-            poster="https://i.ibb.co/2g5238M/poster-image.jpg"
-          >
-            <source src="/src/assets/video.mp4" type="video/mp4" />
-          </video>
-
+          <div id="slide2" className="carousel-item relative w-full">
+            <img
+              src="https://i.ibb.co/Zxf8G9R/closeup-shot-shovel-garden-with-trees.jpg"
+              className="w-full"
+            />
+            <div className="absolute lg:left-[190px] left-[60px]  top-[30%]">
+              <h1 className="text-white lg:text-6xl  text-2xl mb-3  font-semibold">
+                Transforming 
+              </h1>
+              <h2 className="text-white lg:text-7xl  text-2xl mb-3 font-semibold">
+               Your Green Dreams
+              </h2>
+              <h3 className="text-white lg:text-8xl  text-2xl mb-3 font-semibold">
+              into Reality!.
+              </h3>
+            </div>
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+              <a
+                href="#slide1"
+                className="btn btn-circle bg-transparent text-white"
+              >
+                ❮
+              </a>
+              <a
+                href="#slide3"
+                className="btn btn-circle bg-transparent text-white"
+              >
+                ❯
+              </a>
+            </div>
+          </div>
+          <div id="slide3" className="carousel-item relative w-full">
+            <img
+              src="https://i.ibb.co/rb75KFk/planting-flowers-garden-garden-tools-flowers.jpg"
+              className="w-full"
+            />
+            <div className="absolute lg:left-[190px] left-[70px]    top-[30%]">
+              <h1 className="text-white lg:text-6xl  text-2xl mb-3  font-semibold">
+                Transforming 
+              </h1>
+              <h2 className="text-white lg:text-7xl  text-2xl mb-3 font-semibold">
+               Your Green Dreams
+              </h2>
+              <h3 className="text-white lg:text-8xl   text-2xl mb-3 font-semibold">
+              into Reality!.
+              </h3>
+            </div>
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+              <a
+                href="#slide2"
+                className="btn btn-circle bg-transparent text-white"
+              >
+                ❮
+              </a>
+              <a
+                href="#slide4"
+                className="btn btn-circle bg-transparent text-white"
+              >
+                ❯
+              </a>
+            </div>
+          </div>
+          <div id="slide4" className="carousel-item relative w-full">
+            <img
+              src="https://i.ibb.co/ky4KV1Q/pensive-middle-aged-gardener-holding-small-thuja-pot-bearded-garden-worker-glasses-wearing-blue-shir.jpg"
+              className="w-full"
+            />
+            <div className="absolute lg:left-[190px]  left-[70px]   top-[30%]">
+              <h1 className="text-white lg:text-6xl  text-2xl mb-3  font-semibold">
+                Transforming 
+              </h1>
+              <h2 className="text-white lg:text-7xl  text-2xl mb-3 font-semibold">
+               Your Green Dreams
+              </h2>
+              <h3 className="text-white lg:text-8xl  text-2xl mb-3 font-semibold">
+              into Reality!.
+              </h3>
+            </div>
+            <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+              <a
+                href="#slide3"
+                className="btn btn-circle bg-transparent text-white"
+              >
+                ❮
+              </a>
+              <a
+                href="#slide1"
+                className="btn btn-circle bg-transparent text-white"
+              >
+                ❯
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
-
-export default Banner;
+    );
+  };
+  
+  export default Banner;
+  
