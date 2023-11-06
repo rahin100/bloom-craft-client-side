@@ -1,6 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+    .then()
+    .catch();
+  };
+
+
+
+
+
   const navLink = (
     <>
       <li className="text-[16px] font-bold text-black">
@@ -32,12 +46,13 @@ const Navbar = () => {
       </li>
       <li tabIndex={0}>
         <details>
-          <summary className="text-[16px] font-bold text-black">DashBoard</summary>
+          {/* <summary className="text-[18px] font-bold text-black">Dashboard</summary> */}
+          <summary className="text-[18px] font-bold text-black">Dashboard</summary>
           <ul className="p-2">
             <li>
               <NavLink
                 to="/my-services"
-                className="text-black"
+                className="text-black shadow-md text-[14px] font-bold"
                 activeclassname="text-primary-600"
               >
                 My Services
@@ -46,7 +61,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/add-services"
-                className="text-black"
+                className="text-black shadow-md text-[14px] font-bold"
                 activeclassname="text-primary-600"
               >
                 Add Services
@@ -55,7 +70,7 @@ const Navbar = () => {
             <li>
               <NavLink
                 to="/my-schedules"
-                className="text-black"
+                className="text-black shadow-md text-[14px] font-bold"
                 activeclassname="text-primary-600"
               >
                  My Schedules
@@ -104,10 +119,42 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">{navLink}</ul>
+          <ul className="menu menu-horizontal px-1 z-20 bg-[#cbdfbd]">{navLink}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {user?.email ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img src={user.photoURL} alt="User Avatar" />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[1] p-2 shadow menu menu-lg dropdown-content bg-white rounded-box h-[]"
+              >
+                <li>
+                  <a>{user.displayName}</a>
+                </li>
+                <li>
+                  <button onClick={handleSignOut}>Logout</button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/login">
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img
+                      src="https://i.ibb.co/s5zPXPr/accoung-img.jpg"
+                      alt="User Avatar"
+                    />
+                  </div>
+                </label>
+              </div>
+            </Link>
+          )}
         </div>
       </div>
     </div>
