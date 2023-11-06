@@ -40,7 +40,9 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-        <li tabIndex={0}>
+       {
+        user?.email? (
+          <li tabIndex={0}>
           <details>
             {/* <summary className="text-[18px] font-bold text-black">Dashboard</summary> */}
             <summary className="text-[18px] font-bold text-black">
@@ -77,6 +79,8 @@ const Navbar = () => {
             </ul>
           </details>
         </li>
+        ) : ""
+       } 
 
     </>
   );

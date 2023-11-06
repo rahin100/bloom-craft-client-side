@@ -3,6 +3,7 @@ import "./ErrorPage.css"
 
 const ErrorPage = () => {
   return (
+    
     <div>
       <section className="page_404">
         <div className="container">
