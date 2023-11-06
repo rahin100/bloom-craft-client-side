@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../Providers/AuthProvider";
+import { Typewriter } from "react-simple-typewriter";
 
 const SignUp = () => {
   const { createUser, googleLogin } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -27,9 +28,8 @@ const SignUp = () => {
         createUser(email, password)
           .then((result) => {
             console.log(result.user);
-            this.form.reset()
-            navigate('/')
-            
+            this.form.reset();
+            navigate("/");
           })
           .catch((error) => {
             console.log(error);
@@ -53,7 +53,20 @@ const SignUp = () => {
       <div className="lg:hero min-h-screen bg-base-200 mb-[50px]">
         <div className="flex-col ">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold mt-[20px] mb-[20px]">Sign Up</h1>
+            <h1 className="text-5xl font-bold mt-[20px] mb-[20px]">
+              Please
+              <span style={{ color: "red", fontWeight: "bold" }}>
+                {/* Style will be inherited from the parent element */}
+                <Typewriter
+                  words={[" Sign Up"]}
+                  loop={5}
+                  cursor
+                  typeSpeed={70}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                />
+              </span>
+            </h1>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSignUp} className="card-body">

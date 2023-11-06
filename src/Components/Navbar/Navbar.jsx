@@ -2,18 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext } from "react";
 
+
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleSignOut = () => {
-    logOut()
-    .then()
-    .catch();
+    logOut().then().catch();
   };
-
-
-
-
 
   const navLink = (
     <>
@@ -44,41 +39,45 @@ const Navbar = () => {
           Log In
         </NavLink>
       </li>
-      <li tabIndex={0}>
-        <details>
-          {/* <summary className="text-[18px] font-bold text-black">Dashboard</summary> */}
-          <summary className="text-[18px] font-bold text-black">Dashboard</summary>
-          <ul className="p-2">
-            <li>
-              <NavLink
-                to="/my-services"
-                className="text-black shadow-md text-[14px] font-bold"
-                activeclassname="text-primary-600"
-              >
-                My Services
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/add-services"
-                className="text-black shadow-md text-[14px] font-bold"
-                activeclassname="text-primary-600"
-              >
-                Add Services
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/my-schedules"
-                className="text-black shadow-md text-[14px] font-bold"
-                activeclassname="text-primary-600"
-              >
-                 My Schedules
-              </NavLink>
-            </li>
-          </ul>
-        </details>
-      </li>
+
+        <li tabIndex={0}>
+          <details>
+            {/* <summary className="text-[18px] font-bold text-black">Dashboard</summary> */}
+            <summary className="text-[18px] font-bold text-black">
+              Dashboard
+            </summary>
+            <ul className="p-2">
+              <li>
+                <NavLink
+                  to="/my-services"
+                  className="text-black shadow-md text-[14px] font-bold"
+                  activeclassname="text-primary-600"
+                >
+                  My Services
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/add-services"
+                  className="text-black shadow-md text-[14px] font-bold"
+                  activeclassname="text-primary-600"
+                >
+                  Add Services
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/my-schedules"
+                  className="text-black shadow-md text-[14px] font-bold"
+                  activeclassname="text-primary-600"
+                >
+                  My Schedules
+                </NavLink>
+              </li>
+            </ul>
+          </details>
+        </li>
+
     </>
   );
 
@@ -119,7 +118,9 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 z-20 bg-[#cbdfbd]">{navLink}</ul>
+          <ul className="menu menu-horizontal px-1 z-20 bg-[#cbdfbd]">
+            {navLink}
+          </ul>
         </div>
         <div className="navbar-end">
           {user?.email ? (
