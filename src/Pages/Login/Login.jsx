@@ -4,6 +4,9 @@ import { useContext } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
+import Lottie from "lottie-react";
+
+import loginAnimation from "/Users/RAHIN/Desktop/Projects/Milestone 11/bloofcraft-gardens-front/src/assets/loginAnimation.json"
 
 const Login = () => {
   const { signIn, googleLogin } = useContext(AuthContext);
@@ -40,7 +43,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="lg:flex">
       <Helmet>
         <title>BloomCraft | Login</title>
       </Helmet>
@@ -123,15 +126,11 @@ const Login = () => {
         </div>
       </div>
       {/* add humans */}
-      {/* <section className="flex-1">
+      <section className="flex-1">
         <div>
-          <img
-            className="w-[100%] h-[70vh]"
-            src="https://i.ibb.co/3pgXq8F/registration.png"
-            alt=""
-          />
+         <Lottie animationData={loginAnimation}></Lottie>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 };

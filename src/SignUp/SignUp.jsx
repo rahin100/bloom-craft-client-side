@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../Providers/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
 import { Helmet } from "react-helmet-async";
+import Lottie from "lottie-react";
+import signupAnimation from "/Users/RAHIN/Desktop/Projects/Milestone 11/bloofcraft-gardens-front/src/assets/signupAnimation.json"
 
 const SignUp = () => {
   const { createUser, googleLogin, handleUpdateProfile } =
@@ -44,7 +46,8 @@ const SignUp = () => {
   };
 
   return (
-    <div>
+    <div className="lg:flex md:flex-row">
+      <div className="flex-1">
       <Helmet>
         <title>BloomCraft | Sign Up</title>
       </Helmet>
@@ -148,6 +151,13 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+    </div>
+     {/* add humans */}
+     <section className="flex-1">
+        <div>
+         <Lottie animationData={signupAnimation}></Lottie>
+        </div>
+      </section>
     </div>
   );
 };
