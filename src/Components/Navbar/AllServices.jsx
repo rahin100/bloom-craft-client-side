@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const AllServices = ({ allService }) => {
   const {
+    _id,
     serviceImage,
     serviceName,
     serviceDescription,
@@ -36,12 +39,18 @@ const AllServices = ({ allService }) => {
               src={serviceProvider.image}
               alt=""
             />
-            <p className="block  text-[18px] font-medium antialiased leading-relaxed ">
+           <div>
+           <p className="block  text-[18px] font-medium antialiased leading-relaxed ">
               {serviceProvider.name}
             </p>
+           <p className="block  text-[18px] font-medium antialiased leading-relaxed ">
+              Service_Area: {serviceProvider.serviceArea}
+            </p>
+           </div>
           </div>
         </div>
         <div className="p-6 pt-3">
+          <Link to={`/servicesDetails/${_id}`}>
           <button
             className="block w-full select-none rounded-lg bg-[#71B280] py-3.5 px-7 text-center align-middle  text-sm font-bold uppercase text-white shadow-md transition-all hover:shadow-lg focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
@@ -49,6 +58,8 @@ const AllServices = ({ allService }) => {
           >
             View Details
           </button>
+          
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 
+
 /* eslint-disable react/prop-types */
 const ServicesShow = ({ service }) => {
   const {
@@ -42,6 +43,7 @@ const ServicesShow = ({ service }) => {
           </div>
         </div>
         <div className="p-6 pt-3">
+        
           <button
             className="block w-full select-none rounded-lg bg-[#71B280] py-3.5 px-7 text-center align-middle  text-sm font-bold uppercase text-white shadow-md transition-all hover:shadow-lg focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
@@ -49,6 +51,8 @@ const ServicesShow = ({ service }) => {
           >
             View Details
           </button>
+          
+          
         </div>
       </div>
     </div>

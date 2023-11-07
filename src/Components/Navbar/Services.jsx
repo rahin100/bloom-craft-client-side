@@ -4,7 +4,7 @@ import AllServices from "./AllServices";
 const Services = () => {
   const [allServices, setAllServices] = useState([]);
   const [showAll, setShowAll] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:5000/allservices")
@@ -12,11 +12,11 @@ const Services = () => {
       .then((data) => setAllServices(data));
   }, []);
 
-  const filteredServices = allServices.filter((service) =>
-    service.serviceName.toLowerCase().includes(searchQuery.toLowerCase())
+  const filterData = allServices.filter((service) =>
+    service.serviceName.toLowerCase().includes(search.toLowerCase())
   );
 
-  const limitedServices = showAll ? filteredServices : filteredServices.slice(0, 6);
+  const limitedServices = showAll ? filterData : filterData.slice(0, 6);
 
   return (
     <div>
@@ -26,8 +26,8 @@ const Services = () => {
           type="text"
           placeholder="Search by Service Name"
           className="input input-bordered w-full max-w-4xl"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
       <div className="grid lg:grid-cols-2 md:grid-cols-2 grid-cols-1 gap-10 mt-[50px]">
@@ -35,7 +35,7 @@ const Services = () => {
           <AllServices key={allService._id} allService={allService}></AllServices>
         ))}
       </div>
-      {filteredServices.length > 6 && (
+      {filterData.length > 6 && (
         <div className="mb-[100px] text-center mt-[50px]">
           <button className="btn bg-[#74c69d] text-white" onClick={() => setShowAll(!showAll)}>
             {showAll ? "Show Less" : "Show More"}

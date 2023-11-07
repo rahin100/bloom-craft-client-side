@@ -8,6 +8,8 @@ import MySchedules from "../Pages/MySchedules/MySchedules";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import SignUp from "../SignUp/SignUp";
 import Services from "../Components/Navbar/Services";
+import SingleServiceDetails from "../Pages/SingleServiceDetails/SingleServiceDetails";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -45,6 +47,15 @@ const router = createBrowserRouter([
         path: "my-schedules",
         element: <MySchedules></MySchedules>,
       },
+      {
+        path:"servicesDetails/:_id",
+        element:<PrivateRoute><SingleServiceDetails></SingleServiceDetails></PrivateRoute>,
+        loader:async () =>{
+          const res = await fetch("http://localhost:5000/allservices")
+          const data = await res.json()
+          return data;
+        }
+      }
     ],
   },
 ]);
