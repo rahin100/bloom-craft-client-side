@@ -37,7 +37,7 @@ const Services = () => {
       {displayCount < filteredData.length && (
         <div className="text-center">
           <button
-            className="btn bg-[#74c69d] text-white my-[100px]"
+            className="btn bg-[#74c69d] text-white my-[50px]"
             onClick={handleShowMore}
           >
             Show More
