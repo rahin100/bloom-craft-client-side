@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-const AllServices = ({ allService }) => {
+const AllServices = ({ data }) => {
   const {
     _id,
     serviceImage,
     serviceName,
+    serviceProviderName,
+    serviceEmail,
+    serviceArea,
     serviceDescription,
-    serviceProvider,
     servicePrice,
-  } = allService;
+    serviceProviderImage
+  } = data;
+
+
 
   return (
     <div>
@@ -36,15 +41,18 @@ const AllServices = ({ allService }) => {
           <div className="mt-[20px] flex items-center gap-5">
             <img
               className="rounded-full w-[100px] h-[100px]"
-              src={serviceProvider.image}
+              src={serviceProviderImage}
               alt=""
             />
            <div>
            <p className="block  text-[18px] font-medium antialiased leading-relaxed ">
-              {serviceProvider.name}
+              {serviceProviderName}
             </p>
            <p className="block  text-[18px] font-medium antialiased leading-relaxed ">
-              Service_Area: {serviceProvider.serviceArea}
+              {serviceEmail}
+            </p>
+           <p className="block  text-[18px] font-medium antialiased leading-relaxed ">
+              Service_Area: {serviceArea}
             </p>
            </div>
           </div>

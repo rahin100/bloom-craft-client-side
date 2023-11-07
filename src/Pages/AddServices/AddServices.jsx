@@ -11,24 +11,24 @@ const AddServices = () => {
     event.preventDefault();
     const form = event.target;
 
-    const serviceimage = form.serviceimage.value;
-    const servicename = form.servicename.value;
-    const yourname = form.yourname.value;
-    const useremail = form.useremail.value;
-    const servicearea = form.servicearea.value;
-    const description = form.description.value;
-    const price = form.price.value;
-    const serviceproviderimage = form.serviceproviderimage.value;
+    const serviceImage = form.serviceImage.value;
+    const serviceName = form.serviceName.value;
+    const serviceProviderName = form.serviceProviderName.value;
+    const serviceEmail = form.serviceEmail.value;
+    const serviceArea = form.serviceArea.value;
+    const serviceDescription = form.serviceDescription.value;
+    const servicePrice = form.servicePrice.value;
+    const serviceProviderImage= form.serviceProviderImage.value;
 
     const addProduct = {
-      serviceimage,
-      servicename,
-      yourname,
-      useremail,
-      servicearea,
-      description ,
-      price,
-      serviceproviderimage
+      serviceImage,
+      serviceName,
+      serviceProviderName,
+      serviceEmail,
+      serviceArea,
+      serviceDescription,
+      servicePrice,
+      serviceProviderImage
     };
     console.log(addProduct);
 
@@ -52,7 +52,7 @@ const AddServices = () => {
   return (
     <div>
       <Helmet>
-        <title>BloomCraft | DashBoard | Add Services</title>
+        <title>BloomCraft | DashBoard | Add</title>
       </Helmet>
       <div className="bg-[#F4F3F0] lg:p-24 mb-[30px]">
         <h2 className="lg:text-5xl md:text-4xl text-3xl font-bold mb-[25px] text-center text-[#74c69d]">
@@ -68,7 +68,7 @@ const AddServices = () => {
               <label className="input-group">
                 <input
                   type="text"
-                  name="serviceimage"
+                  name="serviceImage"
                   placeholder="Service Image"
                   className="input input-bordered w-full"
                 />
@@ -81,7 +81,7 @@ const AddServices = () => {
               <label className="input-group">
                 <input
                   type="text"
-                  name="servicename"
+                  name="serviceName"
                   placeholder="Service Name"
                   className="input input-bordered w-full"
                 />
@@ -98,7 +98,7 @@ const AddServices = () => {
                 <label className="input-group">
                   <input
                     type="text"
-                    name="yourname"
+                    name="serviceProviderName"
                     defaultValue={user.displayName}
                     placeholder="name"
                     className="input input-bordered w-full"
@@ -116,7 +116,7 @@ const AddServices = () => {
                 <label className="input-group">
                   <input
                     type="email"
-                    name="useremail"
+                    name="serviceEmail"
                     defaultValue={user.email}
                     placeholder="email"
                     className="input input-bordered w-full"
@@ -136,7 +136,7 @@ const AddServices = () => {
               <label className="input-group">
                 <input
                   type="text"
-                  name="servicearea"
+                  name="serviceArea"
                   placeholder="Service Area"
                   className="input input-bordered w-full"
                 />
@@ -149,7 +149,7 @@ const AddServices = () => {
               <label className="input-group">
                 <input
                   type="text"
-                  name="description"
+                  name="serviceDescription"
                   placeholder="Description"
                   className="input input-bordered w-full"
                 />
@@ -165,7 +165,7 @@ const AddServices = () => {
               <label className="input-group">
                 <input
                   type="text"
-                  name="price"
+                  name="servicePrice"
                   placeholder="Price"
                   className="input input-bordered w-full"
                 />
@@ -180,7 +180,7 @@ const AddServices = () => {
                 <label className="input-group">
                   <input
                     type="photo"
-                    name="serviceproviderimage"
+                    name="serviceProviderImage"
                     defaultValue={user.photoURL}
                     placeholder="service provider image"
                     className="input input-bordered w-full"

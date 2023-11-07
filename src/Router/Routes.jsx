@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <Services></Services>,
-        loader:async () =>{
+         loader:async () =>{
           const res = await fetch("http://localhost:5000/allservices")
           const data = await res.json()
           return data;

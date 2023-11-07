@@ -8,35 +8,35 @@ const SingleServiceDetailsCard = ({ singleServices }) => {
   const {
     serviceImage,
     serviceName,
+    serviceProviderName,
+    serviceEmail,
+    serviceArea,
     serviceDescription,
-    serviceProvider,
     servicePrice,
+    serviceProviderImage
   } = singleServices;
 
-  if (!serviceProvider) {
-    return null;
-  }
 
   const handleAddToBooking = (event) => {
     event.preventDefault();
 
     const form = event.target;
 
-    const serviceimage = form.serviceimage.value;
-    const servicename = form.servicename.value;
-    const serviceemail = form.serviceemail.value;
-    const useremail = form.useremail.value;
+    const serviceImage = form.serviceImage.value;
+    const serviceName = form.serviceName.value;
+    const serviceEmail = form.serviceEmail.value;
+    const userEmail = form.userEmail.value;
     const date = form.date.value;
-    const specialinstruction = form.specialinstruction.value;
-    const price = form.price.value;
+    const specialInstruction = form.specialInstruction.value;
+    const servicePrice = form.servicePrice.value;
 
     const bookingServices = {
-      serviceimage,
-      servicename,
-      serviceemail,
-      useremail,
-      date,specialinstruction,
-      price,
+      serviceImage,
+      serviceName,
+      serviceEmail,
+      userEmail,
+      date,specialInstruction,
+      servicePrice,
     };
 
     console.log(bookingServices);
@@ -70,21 +70,21 @@ const SingleServiceDetailsCard = ({ singleServices }) => {
         <div className="relative flex w-full max-w-[26rem] flex-col rounded-xl bg-transparent bg-clip-border text-gray-700 shadow-none">
           <div className="relative flex items-center gap-4 pt-0 pb-8 mx-0 mt-4 overflow-hidden text-gray-700 bg-transparent shadow-none rounded-xl bg-clip-border">
             <img
-              src={serviceProvider.image}
+              src={serviceProviderImage}
               alt="tania andrew"
               className="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
             />
             <div className="flex w-full flex-col gap-0.5">
               <div className="flex items-center justify-between">
                 <h5 className="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
-                  {serviceProvider.name}
+                  {serviceProviderName}
                 </h5>
               </div>
               <p className="block font-sans text-base antialiased font-light leading-relaxed text-blue-gray-900">
-                {serviceProvider.email}
+                {serviceEmail}
               </p>
               <p className="block font-sans text-base antialiased font-light leading-relaxed text-blue-gray-900">
-                {serviceProvider.serviceArea}
+                {serviceArea}
               </p>
             </div>
           </div>
@@ -114,15 +114,15 @@ const SingleServiceDetailsCard = ({ singleServices }) => {
             <div className="mt-[20px] flex items-center gap-5">
               <img
                 className="rounded-full w-[100px] h-[100px]"
-                src={serviceProvider.image}
+                src={serviceProviderImage}
                 alt=""
               />
               <div>
                 <p className="block  text-[18px] font-medium antialiased leading-relaxed ">
-                  {serviceProvider.name}
+                  {serviceProviderName}
                 </p>
                 <p className="block  text-[18px] font-medium antialiased leading-relaxed ">
-                  Service_Area: {serviceProvider.serviceArea}
+                  Service_Area: {serviceArea}
                 </p>
               </div>
             </div>
@@ -159,7 +159,7 @@ const SingleServiceDetailsCard = ({ singleServices }) => {
                         <label className="input-group">
                           <input
                             type="text"
-                            name="serviceimage"
+                            name="serviceImage"
                             defaultValue={serviceImage}
                             placeholder="Image"
                             className="input input-bordered w-full"
@@ -173,7 +173,7 @@ const SingleServiceDetailsCard = ({ singleServices }) => {
                         <label className="input-group">
                           <input
                             type="text"
-                            name="servicename"
+                            name="serviceName"
                             defaultValue={serviceName}
                             placeholder="Name"
                             className="input input-bordered w-full"
@@ -192,8 +192,8 @@ const SingleServiceDetailsCard = ({ singleServices }) => {
                         <label className="input-group">
                           <input
                             type="email"
-                            name="serviceemail"
-                            defaultValue={serviceProvider.email}
+                            name="serviceEmail"
+                            defaultValue={serviceEmail}
                             placeholder="email"
                             className="input input-bordered w-full"
                           />
@@ -207,7 +207,7 @@ const SingleServiceDetailsCard = ({ singleServices }) => {
                           <label className="input-group">
                             <input
                               type="email"
-                              name="useremail"
+                              name="userEmail"
                               defaultValue={user.email}
                               placeholder="email"
                               className="input input-bordered w-full"
@@ -244,7 +244,7 @@ const SingleServiceDetailsCard = ({ singleServices }) => {
                         <label className="input-group">
                           <input
                             type="text"
-                            name="specialinstruction"
+                            name="specialInstruction"
                             placeholder="Special instruction"
                             className="input input-bordered w-full"
                           />
@@ -260,7 +260,7 @@ const SingleServiceDetailsCard = ({ singleServices }) => {
                         <label className="input-group">
                           <input
                             type="text"
-                            name="price"
+                            name="servicePrice"
                             defaultValue={servicePrice}
                             placeholder="Price"
                             className="input input-bordered w-full"
