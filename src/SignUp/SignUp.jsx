@@ -1,12 +1,13 @@
-
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../Providers/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
-  const { createUser, googleLogin, handleUpdateProfile } = useContext(AuthContext);
+  const { createUser, googleLogin, handleUpdateProfile } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSignUp = (e) => {
@@ -17,15 +18,14 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, photo, email, password);
-    
+
     createUser(email, password)
       .then((res) => {
-        console.log(res)
-        handleUpdateProfile(name, photo)
-        .then(() => {
+        console.log(res);
+        handleUpdateProfile(name, photo).then(() => {
           toast.success("User Created Successfully");
           navigate("/");
-          form.reset()
+          form.reset();
         });
       })
       .catch((error) => {
@@ -45,6 +45,9 @@ const SignUp = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>BloomCraft | Sign Up</title>
+      </Helmet>
       <div className="lg:hero min-h-screen bg-base-200 mb-[50px]">
         <div className="flex-col ">
           <div className="text-center lg:text-left">

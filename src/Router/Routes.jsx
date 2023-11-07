@@ -26,6 +26,11 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <Services></Services>,
+        loader:async () =>{
+          const res = await fetch("http://localhost:5000/allservices")
+          const data = await res.json()
+          return data;
+        }
       },
       {
         path: "login",
@@ -37,7 +42,7 @@ const router = createBrowserRouter([
       },
       {
         path: "my-services",
-        element: <MyServices></MyServices>,
+        element: <PrivateRoute><MyServices></MyServices></PrivateRoute>,
       },
       {
         path: "add-services",
@@ -45,7 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: "my-schedules",
-        element: <MySchedules></MySchedules>,
+        element: <PrivateRoute><MySchedules></MySchedules></PrivateRoute>,
       },
       {
         path:"servicesDetails/:_id",

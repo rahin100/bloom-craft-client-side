@@ -3,6 +3,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const { signIn, googleLogin } = useContext(AuthContext);
@@ -16,18 +17,18 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-  
+
     try {
       const user = await signIn(email, password);
       console.log(user);
       form.reset();
-      toast.success('User Logged In Successfully');
-      navigate(location?.state? location.state : '/');
+      toast.success("User Logged In Successfully");
+      navigate(location?.state ? location.state : "/");
     } catch (error) {
       console.error(error.message);
     }
   };
- 
+
   const handleSocialLogin = (media) => {
     media()
       .then((result) => {
@@ -40,6 +41,9 @@ const Login = () => {
 
   return (
     <div className="flex">
+      <Helmet>
+        <title>BloomCraft | Login</title>
+      </Helmet>
       <div className="min-h-screen bg-base-200 p-4 md:p-0 flex-1">
         <div className=" flex flex-col items-center">
           <h1 className="text-3xl md:text-5xl font-bold text-center md:text-left mt-[20px] mb-[20px]">
