@@ -1,3 +1,4 @@
+
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -5,7 +6,7 @@ import { AuthContext } from "../Providers/AuthProvider";
 import { Typewriter } from "react-simple-typewriter";
 
 const SignUp = () => {
-  const { createUser, googleLogin } = useContext(AuthContext);
+  const { createUser, googleLogin, handleUpdateProfile } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSignUp = (e) => {
@@ -16,26 +17,20 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, photo, email, password);
-
-    if (
-      !/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\\[\]:;<>,.?~\\-]).{6,}$/.test(password)
-    ) {
-      toast.error(
-        "Must have 6 character, Have one capital letter , have one special character"
-      );
-    } else {
-      if (email) {
-        createUser(email, password)
-          .then((result) => {
-            console.log(result.user);
-            this.form.reset();
-            navigate("/");
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    }
+    
+    createUser(email, password)
+      .then((res) => {
+        console.log(res)
+        handleUpdateProfile(name, photo)
+        .then(() => {
+          toast.success("User Created Successfully");
+          navigate("/");
+          form.reset()
+        });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
   };
 
   const handleSocialLogin = (media) => {

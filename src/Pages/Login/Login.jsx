@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext } from "react";
 import { Typewriter } from "react-simple-typewriter";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const { signIn, googleLogin } = useContext(AuthContext);
@@ -9,23 +10,24 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-
-    signIn(email, password)
-      .then((result) => {
-        console.log(result.user);
-        navigate(location?.state ? location.state : "/");
-        this.form.reset();
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+  
+    try {
+      const user = await signIn(email, password);
+      console.log(user);
+      form.reset();
+      toast.success('User Logged In Successfully');
+      navigate(location?.state? location.state : '/');
+    } catch (error) {
+      console.error(error.message);
+    }
   };
+ 
   const handleSocialLogin = (media) => {
     media()
       .then((result) => {
