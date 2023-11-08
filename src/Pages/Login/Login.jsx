@@ -6,7 +6,9 @@ import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
 import Lottie from "lottie-react";
 
-import loginAnimation from "/Users/RAHIN/Desktop/Projects/Milestone 11/bloofcraft-gardens-front/src/assets/loginAnimation.json"
+import loginAnimation from "/Users/RAHIN/Desktop/Projects/Milestone 11/bloofcraft-gardens-front/src/assets/loginAnimation.json";
+
+
 
 const Login = () => {
   const { signIn, googleLogin } = useContext(AuthContext);
@@ -26,7 +28,22 @@ const Login = () => {
       console.log(user);
       form.reset();
       toast.success("User Logged In Successfully");
+
+      fetch('http://localhost:5000/jwt',{
+        method:"POST",
+        credentials:'include',
+        headers: {
+          "content-type": "application/json"
+        },
+        body:JSON.stringify({email: email})
+  
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+      })
       navigate(location?.state ? location.state : "/");
+
     } catch (error) {
       console.error(error.message);
     }
@@ -128,7 +145,7 @@ const Login = () => {
       {/* add humans */}
       <section className="flex-1">
         <div>
-         <Lottie animationData={loginAnimation}></Lottie>
+          <Lottie animationData={loginAnimation}></Lottie>
         </div>
       </section>
     </div>
