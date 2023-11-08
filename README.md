@@ -1,8 +1,11 @@
-# React + Vite
+BloomCraft Gardens
+BloomCraft Gardens is a charming and enchanting botanical haven that spans over 10 acres of lush, vibrant beauty. Nestled in a tranquil countryside setting, this idyllic garden is a sanctuary for nature enthusiasts and garden aficionados alike. The gardens boast an exquisite collection of flora from around the world, featuring a diverse array of flowers, trees, and shrubs that bloom in a symphony of colors throughout the seasons.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The key features in this project is:
+You can add services
+You can update and delete services
+Allow user or service provider to add services
+you can easily book any services
+user booked services can see service provider.
+🔗 Links
+https://gardening-react-project.web.app/
