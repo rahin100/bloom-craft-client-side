@@ -7,7 +7,7 @@ const MySchedules = () => {
   const { user } = useContext(AuthContext);
   const [myBookings, setMyBookings] = useState([]);
 
-  const url = `http://localhost:5000/bookings?serviceEmail=${user.email}`;
+  const url = `https://bloom-craft-garden-server-rahinislam030-gmailcom.vercel.app/bookings?serviceEmail=${user.email}`;
 
   useEffect(() => {
     fetch(url)
@@ -20,7 +20,7 @@ const MySchedules = () => {
   console.log(myBookings);
 
   const handleConfirm = _id =>{
-    fetch(`http://localhost:5000/bookings/${_id}`, {
+    fetch(`https://bloom-craft-garden-server-rahinislam030-gmailcom.vercel.app/bookings/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

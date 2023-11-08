@@ -43,7 +43,7 @@ const SingleServiceDetailsCard = ({ singleServices }) => {
 
 
     //send data to server
-    fetch('http://localhost:5000/bookings',{
+    fetch('https://bloom-craft-garden-server-rahinislam030-gmailcom.vercel.app/bookings',{
       method:"POST",
       headers: {
         "content-type": "application/json"

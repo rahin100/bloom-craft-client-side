@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         path: "services",
         element: <Services></Services>,
          loader:async () =>{
-          const res = await fetch("http://localhost:5000/allservices")
+          const res = await fetch("https://bloom-craft-garden-server-rahinislam030-gmailcom.vercel.app/allservices")
           const data = await res.json()
           return data;
         }
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
         path:"servicesDetails/:_id",
         element:<PrivateRoute><SingleServiceDetails></SingleServiceDetails></PrivateRoute>,
         loader:async () =>{
-          const res = await fetch("http://localhost:5000/allservices")
+          const res = await fetch("https://bloom-craft-garden-server-rahinislam030-gmailcom.vercel.app/allservices")
           const data = await res.json()
           return data;
         }
