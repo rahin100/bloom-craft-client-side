@@ -1,19 +1,18 @@
-import { Link, NavLink, useNavigate} from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { useContext } from "react";
-
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
     logOut()
-    .then(()=>{
-      navigate('/')
-    })
-    .catch();
+      .then(() => {
+        navigate("/");
+      })
+      .catch();
   };
 
   const navLink = (
@@ -36,19 +35,22 @@ const Navbar = () => {
           Services
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/login"
-          className="text-[16px] font-bold text-black"
-          activeclassname="text-primary-600"
-        >
-          Log In
-        </NavLink>
-      </li>
+      {user?.email ? (
+        ""
+      ) : (
+        <li>
+          <NavLink
+            to="/login"
+            className="text-[16px] font-bold text-black"
+            activeclassname="text-primary-600"
+          >
+            Log In
+          </NavLink>
+        </li>
+      )}
 
-       {
-        user?.email? (
-          <li tabIndex={0}>
+      {user?.email ? (
+        <li tabIndex={0}>
           <details>
             {/* <summary className="text-[18px] font-bold text-black">Dashboard</summary> */}
             <summary className="text-[18px] font-bold text-black">
@@ -85,9 +87,9 @@ const Navbar = () => {
             </ul>
           </details>
         </li>
-        ) : ""
-       } 
-
+      ) : (
+        ""
+      )}
     </>
   );
 
