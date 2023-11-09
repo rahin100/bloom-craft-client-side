@@ -9,7 +9,7 @@ const MyServices = () => {
   const [getMyServices, setGetMyServices] = useState([]);
 
 
-  const url = `https://bloom-craft-garden-server-35koxbms5-rahinislam030-gmailcom.vercel.app/allservices?serviceEmail=${user.email}`;
+  const url = `https://bloom-craft-garden-server.vercel.app/allservices?serviceEmail=${user.email}`;
 
   useEffect(() => {
     fetch(url)
@@ -32,7 +32,7 @@ const MyServices = () => {
         confirmButtonText: "Yes, delete it",
       }).then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://bloom-craft-garden-server-rahinislam030-gmailcom.vercel.app/allservices/${_id}`, {
+          fetch(`https://bloom-craft-garden-server.vercel.app/allservices/${_id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())

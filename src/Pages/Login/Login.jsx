@@ -29,9 +29,10 @@ const Login = () => {
       form.reset();
       toast.success("User Logged In Successfully");
 
-      fetch('https://bloom-craft-garden-server-rahinislam030-gmailcom.vercel.app/jwt',{
+      fetch('https://bloom-craft-garden-server.vercel.app/jwt',{
         method:"POST",
         credentials:'include',
+        'Access-Control-Allow-Origin': '*',
         headers: {
           "content-type": "application/json"
         },

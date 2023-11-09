@@ -32,7 +32,7 @@ const AddServices = () => {
     };
     console.log(addProduct);
 
-    fetch('https://bloom-craft-garden-server-rahinislam030-gmailcom.vercel.app/allservices',{
+    fetch('https://bloom-craft-garden-server.vercel.app/allservices',{
         method:"POST",
         headers: {
           "content-type": "application/json"

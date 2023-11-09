@@ -43,7 +43,7 @@ const MyServicesShow = ({ getMyService,handleDelete }) => {
     };
     console.log(updateProduct);
 
-    fetch(`https://bloom-craft-garden-server-rahinislam030-gmailcom.vercel.app/allservices/${getMyService._id}`, {
+    fetch(`https://bloom-craft-garden-server.vercel.app/allservices/${getMyService._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
