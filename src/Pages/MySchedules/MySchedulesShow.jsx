@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+
+
 const MySchedulesShow = ({ data, handleConfirm, status }) => {
   const {
     _id,
@@ -10,6 +12,7 @@ const MySchedulesShow = ({ data, handleConfirm, status }) => {
     specialInstruction,
     servicePrice,
   } = data;
+
   return (
     <tr>
       <th></th>
@@ -34,20 +37,13 @@ const MySchedulesShow = ({ data, handleConfirm, status }) => {
       <td>{specialInstruction}</td>
       <td>{servicePrice}</td>
       <th>
-        
-          {
-            status === 'confirm'?  (
-              <span className="text-xl text-[#74c69d]">Confirmed</span>
-               
-            )  : (
-              <button
-              onClick={() => handleConfirm(_id)}
-              className="btn btn-xs"
-            >
-              Confirm
-            </button>
-            )
-          }
+        {status === 'confirm' ? (
+          <span className="text-xl text-[#74c69d]">Confirmed</span>
+        ) : (
+          <button onClick={() => handleConfirm(_id)} className="btn btn-xs">
+            Confirm
+          </button>)
+        }
       </th>
     </tr>
   );

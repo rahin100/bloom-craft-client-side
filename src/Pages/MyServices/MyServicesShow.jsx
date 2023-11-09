@@ -8,6 +8,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 const MyServicesShow = ({ getMyService,handleDelete }) => {
  const {user} = useContext(AuthContext)
   const {
+    _id,
     serviceImage,
     serviceName,
     serviceProviderName,
@@ -43,7 +44,7 @@ const MyServicesShow = ({ getMyService,handleDelete }) => {
     };
     console.log(updateProduct);
 
-    fetch(`https://bloom-craft-garden-server.vercel.app/allservices/${getMyService._id}`, {
+    fetch(`https://bloom-craft-garden-server.vercel.app/allservices/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

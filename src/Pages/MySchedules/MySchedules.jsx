@@ -1,6 +1,6 @@
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import MySchedulesShow from "./MySchedulesShow";
-import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const MySchedules = () => {
@@ -17,32 +17,28 @@ const MySchedules = () => {
       });
   }, [url]);
 
-  console.log(myBookings);
-
-  const handleConfirm = _id =>{
+  const handleConfirm = (_id) => {
     fetch(`https://bloom-craft-garden-server.vercel.app/bookings/${_id}`, {
-      method: "PATCH",
+      method: "PUT",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({status: 'confirm'}),
+      body: JSON.stringify({ status: 'confirm' }),
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
-          // toast.success("Successfully data Updated!");
-          const remaining = myBookings.filter((myBooking)=>myBooking._id !== _id )
-          const updated = myBookings.find(myBooking=>myBooking._id === _id)
-          updated.status = 'confirm'
-          const newBooking = [updated,...remaining]
-          setMyBookings(newBooking)
+          const remaining = myBookings.filter((myBooking) => myBooking._id !== _id);
+          console.log(remaining)
+          const updated = myBookings.find((myBooking) => myBooking._id === _id);
+          console.log(updated)
+          updated.status = 'confirm';
+          const newBooking = [updated, ...remaining];
+          console.log(newBooking)
+          setMyBookings(newBooking);
         }
       });
-  }
-
-
-
+  };
 
   return (
     <div>
@@ -55,13 +51,12 @@ const MySchedules = () => {
         </h2>
         {myBookings.length === 0 ? (
           <p className="lg:text-4xl md:text-3xl text-2xl font-bold mb-[25px] text-red-600 text-center">
-            No bookings available at the moment:
+            No bookings available at the moment.
           </p>
         ) : (
           <div>
             <div className="overflow-x-auto">
               <table className="table">
-                {/* head */}
                 <thead>
                   <tr>
                     <th></th>
@@ -79,9 +74,8 @@ const MySchedules = () => {
                     <MySchedulesShow
                       key={data._id}
                       data={data}
-                      handleInProgress={handleConfirm}
-                      status={status}
-                    ></MySchedulesShow>
+                      handleConfirm={handleConfirm}
+                    />
                   ))}
                 </tbody>
               </table>
@@ -94,16 +88,14 @@ const MySchedules = () => {
         <h2 className="lg:text-5xl md:text-4xl text-3xl font-bold mb-[25px] text-[#74c69d]">
           My Pending works
         </h2>
-
         {myBookings.length === 0 ? (
           <p className="lg:text-4xl md:text-3xl text-2xl font-bold mb-[25px] text-red-600 text-center">
-            There is No pending work:
+            There is no pending work.
           </p>
         ) : (
           <div>
             <div className="overflow-x-auto">
               <table className="table">
-                {/* head */}
                 <thead>
                   <tr>
                     <th></th>
@@ -121,12 +113,11 @@ const MySchedules = () => {
                     <MySchedulesShow
                       key={data._id}
                       data={data}
-                      handleInProgress = {handleConfirm}
-                    ></MySchedulesShow>
+                      handleConfirm={handleConfirm}
+                    />
                   ))}
                 </tbody>
               </table>
-              
             </div>
           </div>
         )}
